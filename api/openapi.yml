@@ -1,0 +1,26 @@
+openapi: '3.0.3'
+
+info:
+  title: 'test-api'
+  description: 'test interview API'
+  version: '1'
+
+paths:
+  '/eth/gasPrice':
+    get:
+      summary: 'get gas price'
+      responses:
+        200:
+          description: 'gas price'
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  gasPrice:
+                    title: 'gas price'
+                    type: 'string'
+                    pattern: '^(?i)0x[\\da-f]+$'
+                    example: '0xaf123'
+        500:
+          description: 'internal server error'
